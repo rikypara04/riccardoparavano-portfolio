@@ -1,23 +1,82 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { withBase } from "../../utils/url";
+
 const capabilities = [
   ["Public communication", "Institutional pages, news, recruitment information, history, contacts and an organised document area."],
   ["Protected member services", "A personal login environment for communications, forms, accreditation requests, profile management and editorial proposals."],
   ["Role-based administration", "Dedicated tools for accreditation management, response analysis, news review and account administration according to assigned permissions."],
-  ["Installable experience", "A Progressive Web App based on the same member area, distributed through the browser and updated through the WordPress service worker."],
+  ["Installable experience", "A Progressive Web App based on the member area, distributed through the browser and updated through the WordPress service worker."],
 ];
+const stack = ["WordPress", "PHP", "MySQL", "JavaScript", "Custom plugins", "PWA"];
 ---
-<BaseLayout title="AIA Udine Web Platform | Riccardo Paravano" description="Case study of the AIA Udine institutional website and protected member-service platform.">
+<BaseLayout title="AIA Udine Web Platform | Riccardo Paravano" description="Case study of the AIA Udine institutional website and protected member-service platform, developed and maintained by Riccardo Paravano.">
   <article class="container page case-study">
-    <a class="back" href={withBase("/projects/")}>â† All projects</a>
-    <header class="case-header"><div><p class="eyebrow">Web platform and digital services</p><h1>AIA Udine Web Platform</h1><p class="lead">I designed, developed and now maintain the official digital platform of the AIA Udine section, combining a public institutional website with protected services for members, managers and administrators.</p></div><aside><span>Role</span><strong>Web developer & webmaster</strong><span>Stack</span><strong>WordPress, PHP, MySQL, JavaScript</strong><span>Status</span><strong>Live and evolving</strong></aside></header>
-    <section><p class="eyebrow">The challenge</p><h2>One platform for communication and section operations.</h2><p>The project had to serve two different contexts without fragmenting the experience: public communication for prospective referees and the local community, and authenticated operational services for association members. The solution needed to remain clear on mobile, manageable by authorised staff and extensible as new workflows were introduced.</p></section>
-    <section><p class="eyebrow">What I delivered</p><div class="capability-grid">{capabilities.map((item) => <div class="capability"><h3>{item[0]}</h3><p>{item[1]}</p></div>)}</div></section>
-    <section class="split"><div><p class="eyebrow">My contribution</p><h2>Ownership beyond the initial build.</h2></div><div><p>I worked across information architecture, interface design, WordPress customisation, plugin integration and custom functionality. I also manage updates, performance, compatibility and the evolution of communication workflows. This makes the project a product-maintenance responsibility, not a one-off website delivery.</p><p>The current platform exposes public documents, news and recruitment content, while the protected area centralises communications, forms and accreditation workflows. The installable PWA reuses the same platform and receives updates automatically.</p></div></section>
-    <section class="outcome"><p class="eyebrow">Outcome</p><h2>A clearer public presence and a controlled service layer for members.</h2><p>The resulting platform provides a single institutional entry point, responsive access from desktop and smartphone, differentiated permissions for operational roles and an extensible base for future documents, historical content, photographs and services.</p><a class="button button--primary" href="https://www.aiaudine.com/" target="_blank" rel="noreferrer">Visit the live website</a></section>
+    <a class="back" href={withBase("/projects/")}>← All projects</a>
+    <header class="case-header">
+      <div>
+        <p class="eyebrow">Web platform and digital services</p>
+        <h1>AIA Udine Web Platform</h1>
+        <p class="lead">I develop and maintain the digital platform of the AIA Udine section. It combines a public institutional website with protected services for members, managers and administrators.</p>
+      </div>
+      <aside aria-label="Project facts">
+        <span>Role</span><strong>Web developer and webmaster</strong>
+        <span>Technology</span><strong>WordPress, PHP, MySQL, JavaScript</strong>
+        <span>Project status</span><strong>Live and maintained</strong>
+      </aside>
+    </header>
+
+    <section>
+      <p class="eyebrow">Context and challenge</p>
+      <h2>One platform for public communication and section operations.</h2>
+      <p>The platform serves two related but different audiences. The public area provides information to prospective referees, members and the local community. The authenticated area supports association workflows and gives authorised users access to services that should not be public. The challenge is to keep these experiences coherent while making the platform understandable on mobile and manageable by the people responsible for its content and operations.</p>
+    </section>
+
+    <section>
+      <p class="eyebrow">Platform capabilities</p>
+      <div class="capability-grid">
+        {capabilities.map((item) => <div class="capability"><h3>{item[0]}</h3><p>{item[1]}</p></div>)}
+      </div>
+    </section>
+
+    <section class="split">
+      <div><p class="eyebrow">My contribution</p><h2>Development and ongoing ownership.</h2></div>
+      <div>
+        <p>My work spans information architecture, interface design, WordPress customisation, plugin integration and custom functionality. I also take care of updates, compatibility, performance and the evolution of the site's content and workflows.</p>
+        <p>The public website and protected member area share the same platform. The member services include communications, forms and accreditation-related workflows, with administrative functions exposed according to assigned permissions. The installable PWA reuses the member-facing platform rather than introducing a separate application.</p>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Technology</p>
+      <h2>Built on a familiar web stack.</h2>
+      <p>The project combines a content-management system with server-side customisation, database-backed features and browser-side interactions.</p>
+      <ul class="tag-list" aria-label="Technologies used">{stack.map((item) => <li class="tag">{item}</li>)}</ul>
+    </section>
+
+    <section class="outcome">
+      <p class="eyebrow">Outcome</p>
+      <h2>A single digital entry point for communication and member services.</h2>
+      <p>The platform provides a public institutional presence and a controlled service layer for members and section staff. Its structure can be extended as new information, documents and workflows are introduced.</p>
+      <a class="button button--primary" href="https://www.aiaudine.com/" target="_blank" rel="noreferrer">Visit the live website</a>
+    </section>
   </article>
 </BaseLayout>
+
 <style>
-.case-study{max-width:1120px}.back{display:inline-block;margin-bottom:3rem;color:var(--muted);font-weight:750}.case-header{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(16rem,.55fr);gap:clamp(2rem,7vw,6rem);align-items:end;padding-bottom:5rem}.case-header aside{display:grid;gap:.35rem;padding:1.5rem;border:1px solid var(--border);border-radius:1rem;background:var(--surface)}.case-header aside span{margin-top:.8rem;color:var(--muted);font-size:.78rem}.case-header aside span:first-child{margin-top:0}.case-study section{padding:4.5rem 0;border-top:1px solid var(--border)}.case-study section>p:not(.eyebrow),.split div:last-child p,.outcome p{max-width:75ch;color:var(--muted);font-size:1.05rem}.capability-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.capability{padding:1.5rem;border:1px solid var(--border);border-radius:1rem;background:var(--surface)}.capability p{margin-bottom:0;color:var(--muted)}.split{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,7vw,6rem)}.outcome{padding:clamp(2rem,5vw,4rem)!important;border:1px solid var(--border)!important;border-radius:1.4rem;background:linear-gradient(135deg,rgba(142,197,244,.1),var(--surface))}.outcome .button{margin-top:1rem}@media(max-width:800px){.case-header,.split,.capability-grid{grid-template-columns:1fr}.case-header{padding-bottom:3rem}}
+  .case-study { max-width: 1120px; }
+  .back { display: inline-block; margin-bottom: 3rem; color: var(--muted); font-weight: 750; }
+  .case-header { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(16rem, .55fr); gap: clamp(2rem, 7vw, 6rem); align-items: end; padding-bottom: 5rem; }
+  .case-header aside { display: grid; gap: .35rem; padding: 1.5rem; border: 1px solid var(--border); border-radius: 1rem; background: var(--surface); }
+  .case-header aside span { margin-top: .8rem; color: var(--muted); font-size: .78rem; }
+  .case-header aside span:first-child { margin-top: 0; }
+  .case-study section { padding: 4.5rem 0; border-top: 1px solid var(--border); }
+  .case-study section > p:not(.eyebrow), .split div:last-child p, .outcome p { max-width: 75ch; color: var(--muted); font-size: 1.05rem; }
+  .capability-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .capability { padding: 1.5rem; border: 1px solid var(--border); border-radius: 1rem; background: var(--surface); }
+  .capability p { margin-bottom: 0; color: var(--muted); }
+  .split { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 7vw, 6rem); }
+  .outcome { padding: clamp(2rem, 5vw, 4rem) !important; border: 1px solid var(--border) !important; border-radius: 1.4rem; background: linear-gradient(135deg, rgba(142,197,244,.1), var(--surface)); }
+  .outcome .button { margin-top: 1rem; }
+  @media (max-width: 800px) { .case-header, .split, .capability-grid { grid-template-columns: 1fr; } .case-header { padding-bottom: 3rem; } }
 </style>

@@ -4,29 +4,61 @@ import { withBase } from "../../utils/url";
 
 const projects = [
   {
-    category: "Web platform and digital services",
-    title: "AIA Udine Web Platform",
-    href: "/projects/aia-udine/",
-    summary: "A complete institutional platform for public communication and protected member services, designed, developed and maintained as an evolving WordPress product.",
-    contribution: "Information architecture, UX, WordPress development, custom plugins, protected workflows, PWA delivery, maintenance and performance.",
-    tags: ["WordPress", "PHP", "MySQL", "JavaScript", "PWA"],
-  },
-  {
-    category: "Enterprise software and databases",
+    number: "01",
+    category: "Enterprise software · Internship and BSc thesis",
     title: "Threshold-Based Maintenance for openMAINT",
     href: "/projects/predictive-maintenance/",
-    summary: "An integrated threshold-maintenance subsystem that turns technical readings into traceable events, notifications and maintenance processes.",
-    contribution: "Requirements, relational modelling, PL/pgSQL validation and runtime logic, Waterway dispatch, dynamic forms, dashboards and experimental validation.",
-    tags: ["PostgreSQL", "PL/pgSQL", "openMAINT", "CMDBuild", "Waterway"],
+    summary: "A threshold-based maintenance subsystem developed for an enterprise Facility Management platform. It evaluates technical readings against configurable rules and records events that can trigger operational actions.",
+    contribution: "Requirements analysis, relational data modelling, PostgreSQL and PL/pgSQL implementation, backend and frontend development, integration and validation.",
+    tags: ["PostgreSQL", "PL/pgSQL", "Java", "Groovy", "JavaScript", "openMAINT", "CMDBuild", "Waterway"],
+  },
+  {
+    number: "02",
+    category: "Web platform · Digital services",
+    title: "AIA Udine Web Platform",
+    href: "/projects/aia-udine/",
+    summary: "An institutional web platform combining public communication with protected services and operational workflows for members of the local football refereeing association.",
+    contribution: "WordPress customisation, PHP and JavaScript functionality, database-backed services, interface development and ongoing platform maintenance.",
+    tags: ["WordPress", "PHP", "MySQL", "JavaScript", "PWA"],
   },
 ];
 ---
-<BaseLayout title="Projects | Riccardo Paravano" description="Selected software and web-platform case studies by Riccardo Paravano.">
+<BaseLayout title="Projects | Riccardo Paravano" description="Software engineering and web-platform case studies by Riccardo Paravano, including enterprise maintenance software and the AIA Udine web platform.">
   <div class="container page">
-    <header class="page-header"><p class="eyebrow">Selected work</p><h1>Two projects, examined in depth.</h1><p class="lead">Rather than listing exercises, these case studies explain the problem, my responsibilities, the architecture and the concrete behaviour delivered.</p></header>
-    <div class="projects">{projects.map((project, index) => <article class="project-card"><div class="project-number">0{index + 1}</div><div><p class="card__label">{project.category}</p><h2><a href={withBase(project.href)}>{project.title}</a></h2><p class="summary">{project.summary}</p><p class="contribution"><strong>My contribution:</strong> {project.contribution}</p><ul class="tag-list" aria-label={`${project.title} technologies`}>{project.tags.map((tag) => <li class="tag">{tag}</li>)}</ul><a class="project-link" href={withBase(project.href)}>Read the case study <span aria-hidden="true">â†’</span></a></div></article>)}</div>
+    <header class="page-header">
+      <p class="eyebrow">Selected work</p>
+      <h1>Projects built around real requirements.</h1>
+      <p class="lead">These case studies explain the context, the engineering decisions and my contribution. They focus on software that connects data, application logic and people who need to use the result.</p>
+    </header>
+    <div class="projects">
+      {projects.map((project) => (
+        <article class="project-card">
+          <div class="project-number">{project.number}</div>
+          <div>
+            <p class="card__label">{project.category}</p>
+            <h2><a href={withBase(project.href)}>{project.title}</a></h2>
+            <p class="summary">{project.summary}</p>
+            <p class="contribution"><strong>My contribution:</strong> {project.contribution}</p>
+            <ul class="tag-list" aria-label={`${project.title} technologies`}>
+              {project.tags.map((tag) => <li class="tag">{tag}</li>)}
+            </ul>
+            <a class="project-link" href={withBase(project.href)}>Read the case study <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      ))}
+    </div>
   </div>
 </BaseLayout>
+
 <style>
-.projects{display:grid;gap:1.4rem}.project-card{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.25rem,4vw,3rem);padding:clamp(1.5rem,4vw,3rem);border:1px solid var(--border);border-radius:1.35rem;background:linear-gradient(145deg,rgba(142,197,244,.055),transparent 42%),var(--surface)}.project-number{color:var(--accent);font-size:.78rem;font-weight:850;letter-spacing:.12em}.project-card h2{margin-bottom:1rem;font-size:clamp(1.8rem,4vw,2.8rem)}.project-card h2 a{text-decoration:none}.project-card h2 a:hover{color:var(--accent)}.summary{max-width:70ch;color:var(--text);font-size:1.06rem}.contribution{max-width:75ch;color:var(--muted)}.project-link{display:inline-flex;margin-top:1.5rem;color:var(--accent);font-weight:800;text-underline-offset:.3rem}@media(max-width:600px){.project-card{grid-template-columns:1fr}.project-number{margin-bottom:-.5rem}}
+  .projects { display: grid; gap: 1.4rem; }
+  .project-card { display: grid; grid-template-columns: auto 1fr; gap: clamp(1.25rem, 4vw, 3rem); padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--border); border-radius: 1.35rem; background: linear-gradient(145deg, rgba(142,197,244,.055), transparent 42%), var(--surface); }
+  .project-number { color: var(--accent); font-size: .78rem; font-weight: 850; letter-spacing: .12em; }
+  .project-card h2 { margin-bottom: 1rem; font-size: clamp(1.8rem, 4vw, 2.8rem); }
+  .project-card h2 a { text-decoration: none; }
+  .project-card h2 a:hover { color: var(--accent); }
+  .summary { max-width: 70ch; color: var(--text); font-size: 1.06rem; }
+  .contribution { max-width: 75ch; color: var(--muted); }
+  .project-link { display: inline-flex; gap: .4rem; margin-top: 1.5rem; color: var(--accent); font-weight: 800; text-underline-offset: .3rem; }
+  @media (max-width: 600px) { .project-card { grid-template-columns: 1fr; } .project-number { margin-bottom: -.5rem; } }
 </style>
