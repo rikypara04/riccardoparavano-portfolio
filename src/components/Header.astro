@@ -11,7 +11,7 @@ const navigation = [
 <header class="site-header">
   <div class="container inner">
     <a class="brand" href={withBase("/")} aria-label="Riccardo Paravano, homepage"><b>RP</b><span>Riccardo Paravano</span></a>
-    <nav aria-label="Primary navigation"><ul>{navigation.map((item) => <li><a href={withBase(item.href)} aria-current={currentPath === item.href ? "page" : undefined}>{item.label}</a></li>)}</ul></nav>
+    <nav aria-label="Primary navigation"><ul>{navigation.map((item) => <li><a href={withBase(item.href)} aria-current={currentPath === withBase(item.href) ? "page" : undefined}>{item.label}</a></li>)}</ul></nav>
   </div>
 </header>
 <style>
