@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const items = [
+  ["Working method", "From requirements to a reliable result", "I organise information, study comparable cases, identify requirements, design the solution and improve details iteratively."],
+  ["Technical profile", "A broad Computer Science foundation", "My experience spans software development, web technologies, relational databases, enterprise platforms, testing and documentation."],
+  ["Beyond software", "Responsibility under real conditions", "Emergency-response volunteering and football refereeing strengthen precision, clear communication and decision-making."],
+  ["International experience", "Udine, Gothenburg and Ljubljana", "Different European academic environments strengthened independence, adaptability and cross-cultural collaboration."],
+];
+---
+<BaseLayout title="About | Riccardo Paravano"><div class="container page"><header class="page-header"><p class="eyebrow">About me</p><h1>Curious by nature. Methodical by practice.</h1><p class="lead">I enjoy solving complex problems through careful design, continuous refinement and a clear understanding of how the final solution will be used.</p></header><div class="about-grid">{items.map((item) => <section class="card"><p class="card__label">{item[0]}</p><h2>{item[1]}</h2><p class="card__text">{item[2]}</p></section>)}</div></div></BaseLayout>
+<style>.about-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}.about-grid h2{font-size:1.75rem}@media(max-width:760px){.about-grid{grid-template-columns:1fr}}</style>

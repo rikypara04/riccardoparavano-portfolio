@@ -1,0 +1,6 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../config/site";
+---
+<BaseLayout title="Contact | Riccardo Paravano"><div class="container page"><header class="page-header"><p class="eyebrow">Contact</p><h1>Let us build something useful.</h1><p class="lead">I am interested in software development, technical collaborations, web platforms, backend systems, data, AI and cybersecurity.</p></header><section class="card contact"><div><p class="card__label">Email</p><h2>Start a conversation</h2><p class="card__text">Contact me directly by email or review my professional background on LinkedIn.</p></div><div class="button-row"><a class="button button--primary" href={`mailto:${siteConfig.email}`}>Send an email</a><a class="button" href={siteConfig.linkedin} target="_blank" rel="noreferrer">LinkedIn profile</a></div></section></div></BaseLayout>
+<style>.contact{display:grid;grid-template-columns:1fr auto;align-items:end;gap:3rem;padding:clamp(1.5rem,5vw,3.5rem)}@media(max-width:760px){.contact{grid-template-columns:1fr;align-items:start}}</style>

@@ -1,0 +1,10 @@
+---
+import { siteConfig } from "../config/site";
+---
+<footer><div class="container footer"><div><strong>{siteConfig.name}</strong><p>Software development, AI, cybersecurity and reliable web platforms.</p></div><div class="meta"><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a><span>{siteConfig.location}</span><span>Â© {new Date().getFullYear()} {siteConfig.name}</span></div></div></footer>
+<style>
+footer { padding: 2.5rem 0; border-top: 1px solid var(--border); background: #0b1220; }
+.footer { display: flex; justify-content: space-between; gap: 2rem; }
+p { margin: .35rem 0 0; color: var(--muted); }.meta { display: grid; justify-items: end; color: var(--muted); font-size: .9rem; }
+@media (max-width: 700px) { .footer { flex-direction: column; } .meta { justify-items: start; } }
+</style>

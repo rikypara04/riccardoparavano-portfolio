@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const projects = [
+  ["Web platform", "AIA Udine", "Official association platform developed and managed with WordPress, PHP, MySQL, HTML, CSS and JavaScript.", ["WordPress","PHP","MySQL","JavaScript"]],
+  ["Enterprise software", "Predictive Maintenance", "Database, backend, frontend, integration, testing and documentation work for an openMAINT predictive-maintenance module.", ["Java","Groovy","PostgreSQL","JavaScript"]],
+  ["Technical knowledge", "AI & Cybersecurity Notes", "A version-controlled knowledge platform for MSc materials and maintainable technical publication workflows.", ["Quarto","Git","LaTeX"]],
+  ["Product development", "AI Compliance Assistant", "A structured product project exploring AI-supported compliance analysis and controlled workflows.", ["AI","Compliance","Architecture","Git"]],
+];
+---
+<BaseLayout title="Projects | Riccardo Paravano"><div class="container page"><header class="page-header"><p class="eyebrow">Selected work</p><h1>Projects built around real problems.</h1><p class="lead">Detailed case studies will focus on context, requirements, architecture, decisions, implementation and results.</p></header><div class="projects">{projects.map((p) => <article class="card project"><p class="card__label">{p[0]}</p><h2>{p[1]}</h2><p class="card__text">{p[2]}</p><ul class="tag-list">{(p[3] as string[]).map((tag) => <li class="tag">{tag}</li>)}</ul></article>)}</div></div></BaseLayout>
+<style>.projects{display:grid;gap:1.25rem}.project{padding:clamp(1.5rem,4vw,2.5rem)}.project h2{font-size:clamp(1.75rem,4vw,2.5rem)}</style>
