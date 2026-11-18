@@ -5,4 +5,6 @@ export const siteConfig = {
   location: "Udine, Italy",
   email: "riccardoparavano0@gmail.com",
   linkedin: "https://www.linkedin.com/in/riccardo-paravano",
+  github: "https://github.com/rikypara04",
+  cvPath: "/cv/riccardo-paravano-cv.pdf",
 } as const;
