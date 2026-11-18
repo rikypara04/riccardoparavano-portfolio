@@ -1,11 +1,32 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { withBase } from "../../utils/url";
+
 const projects = [
-  ["Web platform", "AIA Udine", "Official association platform developed and managed with WordPress, PHP, MySQL, HTML, CSS and JavaScript.", ["WordPress","PHP","MySQL","JavaScript"]],
-  ["Enterprise software", "Predictive Maintenance", "Database, backend, frontend, integration, testing and documentation work for an openMAINT predictive-maintenance module.", ["Java","Groovy","PostgreSQL","JavaScript"]],
-  ["Technical knowledge", "AI & Cybersecurity Notes", "A version-controlled knowledge platform for MSc materials and maintainable technical publication workflows.", ["Quarto","Git","LaTeX"]],
-  ["Product development", "AI Compliance Assistant", "A structured product project exploring AI-supported compliance analysis and controlled workflows.", ["AI","Compliance","Architecture","Git"]],
+  {
+    category: "Web platform and digital services",
+    title: "AIA Udine Web Platform",
+    href: "/projects/aia-udine/",
+    summary: "A complete institutional platform for public communication and protected member services, designed, developed and maintained as an evolving WordPress product.",
+    contribution: "Information architecture, UX, WordPress development, custom plugins, protected workflows, PWA delivery, maintenance and performance.",
+    tags: ["WordPress", "PHP", "MySQL", "JavaScript", "PWA"],
+  },
+  {
+    category: "Enterprise software and databases",
+    title: "Threshold-Based Maintenance for openMAINT",
+    href: "/projects/predictive-maintenance/",
+    summary: "An integrated threshold-maintenance subsystem that turns technical readings into traceable events, notifications and maintenance processes.",
+    contribution: "Requirements, relational modelling, PL/pgSQL validation and runtime logic, Waterway dispatch, dynamic forms, dashboards and experimental validation.",
+    tags: ["PostgreSQL", "PL/pgSQL", "openMAINT", "CMDBuild", "Waterway"],
+  },
 ];
 ---
-<BaseLayout title="Projects | Riccardo Paravano"><div class="container page"><header class="page-header"><p class="eyebrow">Selected work</p><h1>Projects built around real problems.</h1><p class="lead">Detailed case studies will focus on context, requirements, architecture, decisions, implementation and results.</p></header><div class="projects">{projects.map((p) => <article class="card project"><p class="card__label">{p[0]}</p><h2>{p[1]}</h2><p class="card__text">{p[2]}</p><ul class="tag-list">{(p[3] as string[]).map((tag) => <li class="tag">{tag}</li>)}</ul></article>)}</div></div></BaseLayout>
-<style>.projects{display:grid;gap:1.25rem}.project{padding:clamp(1.5rem,4vw,2.5rem)}.project h2{font-size:clamp(1.75rem,4vw,2.5rem)}</style>
+<BaseLayout title="Projects | Riccardo Paravano" description="Selected software and web-platform case studies by Riccardo Paravano.">
+  <div class="container page">
+    <header class="page-header"><p class="eyebrow">Selected work</p><h1>Two projects, examined in depth.</h1><p class="lead">Rather than listing exercises, these case studies explain the problem, my responsibilities, the architecture and the concrete behaviour delivered.</p></header>
+    <div class="projects">{projects.map((project, index) => <article class="project-card"><div class="project-number">0{index + 1}</div><div><p class="card__label">{project.category}</p><h2><a href={withBase(project.href)}>{project.title}</a></h2><p class="summary">{project.summary}</p><p class="contribution"><strong>My contribution:</strong> {project.contribution}</p><ul class="tag-list" aria-label={`${project.title} technologies`}>{project.tags.map((tag) => <li class="tag">{tag}</li>)}</ul><a class="project-link" href={withBase(project.href)}>Read the case study <span aria-hidden="true">â†’</span></a></div></article>)}</div>
+  </div>
+</BaseLayout>
+<style>
+.projects{display:grid;gap:1.4rem}.project-card{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.25rem,4vw,3rem);padding:clamp(1.5rem,4vw,3rem);border:1px solid var(--border);border-radius:1.35rem;background:linear-gradient(145deg,rgba(142,197,244,.055),transparent 42%),var(--surface)}.project-number{color:var(--accent);font-size:.78rem;font-weight:850;letter-spacing:.12em}.project-card h2{margin-bottom:1rem;font-size:clamp(1.8rem,4vw,2.8rem)}.project-card h2 a{text-decoration:none}.project-card h2 a:hover{color:var(--accent)}.summary{max-width:70ch;color:var(--text);font-size:1.06rem}.contribution{max-width:75ch;color:var(--muted)}.project-link{display:inline-flex;margin-top:1.5rem;color:var(--accent);font-weight:800;text-underline-offset:.3rem}@media(max-width:600px){.project-card{grid-template-columns:1fr}.project-number{margin-bottom:-.5rem}}
+</style>
